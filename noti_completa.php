@@ -25,6 +25,26 @@ $id = $_GET["id"];
 </script>
 <!--//-------------------------------------------------------------------------------------------------------------------->
 
+
+<script type="text/javascript">
+function getVote(value,id) {
+    if (window.XMLHttpRequest) {// code for IE7+, Firefox, Chrome, Opera, Safari
+      xmlhttp=new XMLHttpRequest();
+    }
+    else {// code for IE6, IE5
+      xmlhttp=new ActiveXObject("Microsoft.XMLHTTP");
+    }
+    xmlhttp.onreadystatechange=function() {
+      if (xmlhttp.readyState==4 && xmlhttp.status==200) {
+        document.getElementById("poll").innerHTML=xmlhttp.responseText;
+      }
+    }
+    xmlhttp.open("GET","getpoll.php?vote="+value+"&id="+id,true);
+    xmlhttp.send();
+}
+</script>
+
+
  <h1 id="title" align="center">NOTICIAS</h1>
    <br />
 	<hr />
@@ -56,17 +76,17 @@ $id = $_GET["id"];
             	<td width='50%'> 
 		            Valorar :
 		            <div id="poll">
-					<form>
+					<form name"form1">
 						
 						<input type="hidden" name="id" value="<?php echo $id; ?>" />
 					    Buena:
-					    <input type="radio" name="vote" value="0" onclick="getVote(this.value)" />
+					    <input type="radio" name="vote" value="0" onclick="getVote(this.value,<?php echo $id;?>)" />
 					     | 
 					    Regular:
-					    <input type="radio" name="vote" value="1" onclick="getVote(this.value)" />
+					    <input type="radio" name="vote" value="1" onclick="getVote(this.value,<?php echo $id;?>)" />
 					     | 
 					    Mala:
-					    <input type="radio" name="vote" value="2" onclick="getVote(this.value)" />
+					    <input type="radio" name="vote" value="2" onclick="getVote(this.value,<?php echo $id;?>)" />
 					    
 					</form>
 					</div>
