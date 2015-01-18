@@ -33,18 +33,12 @@
 		});
 	});
 </script>
-<!--
-	1 ) Reference to the files containing the JavaScript and CSS.
-	These files must be located on your server.
--->
+
 
 <script type="text/javascript" src="highslide/highslide-with-gallery.js"></script>
 <link rel="stylesheet" type="text/css" href="highslide/highslide.css" />
 
-<!--
-	2) Optionally override the settings defined at the top
-	of the highslide.js file. The parameter hs.graphicsDir is important!
--->
+
 
 <script type="text/javascript">
 hs.graphicsDir = 'highslide/graphics/';
@@ -101,7 +95,7 @@ hs.addSlideshow({
          }
      else if (comentario.value=="")
          {
-             alert("El comentario no puede ser en blanco.");
+             alert("rellene el campo de texto denuncia.");
               return false;
          }
      else if (cadena.length <= 10)
@@ -149,8 +143,8 @@ hs.addSlideshow({
   <td colspan="2">
 <div align="justify" style="background-color:#FFFFFF; padding-left:50px;" >
 <blockquote>
-<!--- GALERIA DE FOTOS --->
+
 <?php include ('libro/index.php'); ?>
-<!--FIN GALERIA DE FOTOS -->
+
 </blockquote>
 </div>
